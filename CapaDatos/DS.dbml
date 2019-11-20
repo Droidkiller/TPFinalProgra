@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TPFinalProgra" Class="DSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local)\SQLExpress;Initial Catalog=TPFinalProgra;Integrated Security=True" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="TPFinalPrograConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Almacenamiento" Member="eAlmacenamientos">
+    <Type Name="eAlmacenamiento">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="modelo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="capacidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="velocidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tipo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="idMarca" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="eAlmacenamiento_eNotebook" Member="eNotebooks" ThisKey="id" OtherKey="idAlmacenamiento" Type="eNotebook" />
+      <Association Name="eMarca_eAlmacenamiento" Member="eMarca" ThisKey="idMarca" OtherKey="id" Type="eMarca" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Graficos" Member="eGraficos">
+    <Type Name="eGraficos">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="modelo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="eGraficos_eProcesador" Member="eProcesadors" ThisKey="id" OtherKey="idGraficos" Type="eProcesador" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Marca" Member="eMarcas">
+    <Type Name="eMarca">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Association Name="eMarca_eAlmacenamiento" Member="eAlmacenamientos" ThisKey="id" OtherKey="idMarca" Type="eAlmacenamiento" />
+      <Association Name="eMarca_eNotebook" Member="eNotebooks" ThisKey="id" OtherKey="idMarca" Type="eNotebook" />
+      <Association Name="eMarca_eProcesador" Member="eProcesadors" ThisKey="id" OtherKey="idMarca" Type="eProcesador" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Notebook" Member="eNotebooks">
+    <Type Name="eNotebook">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="modelo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="tamañoPantalla" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="memoria" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="peso" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="idProcesador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idAlmacenamiento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idMarca" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="eAlmacenamiento_eNotebook" Member="eAlmacenamiento" ThisKey="idAlmacenamiento" OtherKey="id" Type="eAlmacenamiento" IsForeignKey="true" />
+      <Association Name="eMarca_eNotebook" Member="eMarca" ThisKey="idMarca" OtherKey="id" Type="eMarca" IsForeignKey="true" />
+      <Association Name="eProcesador_eNotebook" Member="eProcesador" ThisKey="idProcesador" OtherKey="id" Type="eProcesador" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Procesador" Member="eProcesadors">
+    <Type Name="eProcesador">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="modelo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="frecuencia" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="nroNucleos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idGraficos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idMarca" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="eProcesador_eNotebook" Member="eNotebooks" ThisKey="id" OtherKey="idProcesador" Type="eNotebook" />
+      <Association Name="eGraficos_eProcesador" Member="eGraficos" ThisKey="idGraficos" OtherKey="id" Type="eGraficos" IsForeignKey="true" />
+      <Association Name="eMarca_eProcesador" Member="eMarca" ThisKey="idMarca" OtherKey="id" Type="eMarca" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
