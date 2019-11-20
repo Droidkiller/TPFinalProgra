@@ -14,7 +14,7 @@ namespace CapaNegocio
         #region Variables
         private int id;
         private string modelo;
-        private float frecuencia;
+        private double frecuencia;
         private int nroNucleos;
         private Graficos graficos;
         private int fkGraficos;
@@ -48,7 +48,7 @@ namespace CapaNegocio
             }
         }
 
-        public float Frecuencia
+        public double Frecuencia
         {
             get
             {
@@ -138,7 +138,7 @@ namespace CapaNegocio
             fkMarca = 0;
         }
 
-        public Procesador(int id, string modelo, float frecuencia, int nroNucleos, int fkGraficos, int fkMarca)
+        public Procesador(int id, string modelo, double frecuencia, int nroNucleos, int fkGraficos, int fkMarca)
         {
             this.id = id;
             this.modelo = modelo;
@@ -150,6 +150,11 @@ namespace CapaNegocio
         #endregion
 
         #region Metodos
+        public override string ToString()
+        {
+            return modelo;
+        }
+
         public void Guardar()
         {
             DSDataContext dc = new DSDataContext(Conexion.DarStrConexion());
@@ -186,6 +191,95 @@ namespace CapaNegocio
             dc.SubmitChanges();
             this.id = fila.id;
         }
+        public void Eliminar()
+        {
+            DSDataContext dc = new DSDataContext(Conexion.DarStrConexion());
+            var res = from x in dc.eProcesadors where x.id == this.id select x;
+            if (res.Count() > 0)
+            {
+                dc.eProcesadors.DeleteOnSubmit(res.First());
+                dc.SubmitChanges();
+            }
+            else
+                throw new Exception("Articulo no encontrado");
+        }
+
+        public static List<Procesador> Buscar(string buscado = "")
+        {
+            List<Procesador> procesadores = new List<Procesador>();
+            DSDataContext dc = new DSDataContext(Conexion.DarStrConexion());
+            var res = from x in dc.eProcesadors
+                      where buscado == ""
+                      || x.modelo.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      || x.frecuencia.ToString().Contains(buscado.ToLower().Trim())
+                      || x.nroNucleos.ToString().Contains(buscado.ToLower().Trim())
+                      || x.id.ToString() == buscado.Trim()
+                      || x.eMarca.nombre.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      || x.eGraficos.modelo.ToLower().Trim().Contains(buscado.ToLower().Trim())
+                      
+                      select x;
+
+            foreach (eProcesador em in res)
+            {
+                procesadores.Add(new Procesador(em.id, em.modelo, Convert.ToDouble(em.frecuencia), Convert.ToInt32(em.nroNucleos), Convert.ToInt32(em.idGraficos), Convert.ToInt32(em.idMarca)));
+            }
+
+            return procesadores;
+        }
+
+        public static IQueryable ConsultaEjemplo()
+        {
+            DSDataContext dc = new DSDataContext(Conexion.DarStrConexion());
+            var resultado = from x in dc.eProcesadors
+                            select new
+                            {
+                                Modelo = x.modelo,
+                                Frecuencia = x.frecuencia,
+                                NroNucleos = x.nroNucleos,
+                                Graficos = x.eGraficos.modelo
+                                Marca = x.eMarca.nombre,
+                            };
+            return resultado;
+        }
+
+        public static DataTable BuscarPorDT(string buscado)
+        {
+            SqlConnection sqlConn = new SqlConnection(Conexion.DarStrConexion());
+            try
+            {
+                sqlConn.Open();
+                SqlDataAdapter adapter;
+                DataSet ds = new DataSet();
+                adapter = new SqlDataAdapter(string.Concat("select p.id, p.modelo 'Modelo', p.frecuencia 'Frecuencia', p.nroNucleos 'Numero de nucleos', m.nombre 'Marca' from procesador p inner join marca m on p.idMarca = m.id where p.modelo like '%", buscado, "%' or a.nombre like '%", buscado, "%' or a.descripcion like '%", buscado, "%' or a.precio like '%", buscado, "%' or m.nombre like '%", buscado, "%'"), sqlConn);
+                adapter.Fill(ds);
+                return ds.Tables[0]; //esto es si solo tiene 1 tabla, si tiene mas de una uso DataSet como tipo de dato a retornar
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                sqlConn.Close();
+                sqlConn.Dispose();
+            }
+
+        }
+
+        public static Procesador BuscarPorId(int id)
+        {
+            DSDataContext dc = new DSDataContext(Conexion.DarStrConexion());
+            var res = from x in dc.eArticulos
+                      where x.id == id
+                      select x;
+            if (res.Count() > 0)
+            {
+                var x = res.First();
+                return new Articulo(x.id, x.codigo, x.nombre, x.descripcion, x.precio, x.fkMarca);
+            }
+            return null;
+        }
+
         #endregion
     }
 }
