@@ -78,6 +78,10 @@ namespace CapaNegocio
         {
             get
             {
+                if (graficos == null && fkGraficos != 0)
+                {
+                    graficos = Graficos.BuscarPorId(fkGraficos);
+                }
                 return graficos;
             }
 
@@ -91,6 +95,7 @@ namespace CapaNegocio
         {
             get
             {
+                
                 return fkGraficos;
             }
 
@@ -104,6 +109,10 @@ namespace CapaNegocio
         {
             get
             {
+                if(marca==null && fkMarca!=0)
+                {
+                    marca = Marca.BuscarPorId(fkMarca);
+                }
                 return marca;
             }
 
@@ -175,6 +184,7 @@ namespace CapaNegocio
             fila.modelo = modelo;
             fila.frecuencia = frecuencia;
             fila.nroNucleos = nroNucleos;
+            fkMarca = this.Marca.Id;
 
             if (this.Marca.Id == 0)
             {
@@ -183,6 +193,17 @@ namespace CapaNegocio
             else
             {
                 fila.idMarca = fkMarca;
+            }
+
+            fkGraficos = this.Graficos.Id;
+
+            if (this.Graficos.Id == 0)
+            {
+                fila.eGraficos = this.Graficos.Guardar(dc);
+            }
+            else
+            {
+                fila.idGraficos = fkGraficos;
             }
 
             if (this.id == 0)
@@ -201,7 +222,7 @@ namespace CapaNegocio
                 dc.SubmitChanges();
             }
             else
-                throw new Exception("Articulo no encontrado");
+                throw new Exception("Procesador no encontrado");
         }
 
         public static List<Procesador> Buscar(string buscado = "")
@@ -236,7 +257,7 @@ namespace CapaNegocio
                                 Modelo = x.modelo,
                                 Frecuencia = x.frecuencia,
                                 NroNucleos = x.nroNucleos,
-                                Graficos = x.eGraficos.modelo
+                                Graficos = x.eGraficos.modelo,
                                 Marca = x.eMarca.nombre,
                             };
             return resultado;
@@ -269,13 +290,13 @@ namespace CapaNegocio
         public static Procesador BuscarPorId(int id)
         {
             DSDataContext dc = new DSDataContext(Conexion.DarStrConexion());
-            var res = from x in dc.eArticulos
+            var res = from x in dc.eProcesadors
                       where x.id == id
                       select x;
             if (res.Count() > 0)
             {
                 var x = res.First();
-                return new Articulo(x.id, x.codigo, x.nombre, x.descripcion, x.precio, x.fkMarca);
+                return new Procesador(x.id, x.modelo, Convert.ToDouble(x.frecuencia), Convert.ToInt32(x.nroNucleos), Convert.ToInt32(x.idGraficos), Convert.ToInt32(x.idMarca));
             }
             return null;
         }

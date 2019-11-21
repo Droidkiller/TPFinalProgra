@@ -18,6 +18,7 @@ namespace TPFinalProgra
             InitializeComponent();
         }
 
+        #region Metodos
         private void ZonaDatos(bool mostrar)
         {
             numIdMarca.Value = 0;
@@ -38,6 +39,8 @@ namespace TPFinalProgra
 
             return null;
         }
+        #endregion
+        #region Eventos
         private void btnAddMarca_Click(object sender, EventArgs e)
         {
             ZonaDatos(true);
@@ -81,8 +84,7 @@ namespace TPFinalProgra
 
         private void FormMarca_Load(object sender, EventArgs e)
         {
-            dgvMarca.DataSource = null;
-            dgvMarca.DataSource = Marca.Buscar();
+            Buscar();
         }
 
         private void btnDelMarca_Click(object sender, EventArgs e)
@@ -99,5 +101,22 @@ namespace TPFinalProgra
                     MessageBox.Show("Seleccione una marca", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-    }+
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+
+        private void btnCancelarMarca_Click(object sender, EventArgs e)
+        {
+            ZonaDatos(false);
+        }
+        #endregion
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+    }
 }

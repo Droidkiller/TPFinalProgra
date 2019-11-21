@@ -33,8 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,11 +49,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS.cs">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormAlmacenamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAlmacenamiento.Designer.cs">
+      <DependentUpon>FormAlmacenamiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGraficos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGraficos.Designer.cs">
+      <DependentUpon>FormGraficos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInicio.Designer.cs">
+      <DependentUpon>FormInicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMarca.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMarca.Designer.cs">
       <DependentUpon>FormMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNotebook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNotebook.Designer.cs">
+      <DependentUpon>FormNotebook.cs</DependentUpon>
     </Compile>
     <Compile Include="FormProcesador.cs">
       <SubType>Form</SubType>
@@ -58,13 +93,31 @@
     <Compile Include="FormProcesador.Designer.cs">
       <DependentUpon>FormProcesador.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVisorCPU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVisorCPU.Designer.cs">
+      <DependentUpon>FormVisorCPU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAlmacenamiento.resx">
+      <DependentUpon>FormAlmacenamiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGraficos.resx">
+      <DependentUpon>FormGraficos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInicio.resx">
+      <DependentUpon>FormInicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMarca.resx">
       <DependentUpon>FormMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProcesador.resx">
       <DependentUpon>FormProcesador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVisorCPU.resx">
+      <DependentUpon>FormVisorCPU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -75,6 +128,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportNotebooks.rdlc" />
+    <EmbeddedResource Include="ReporteCPU.rdlc" />
+    <None Include="DS.xsc">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </None>
+    <None Include="DS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS.xss">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

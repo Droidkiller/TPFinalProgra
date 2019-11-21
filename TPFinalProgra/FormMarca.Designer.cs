@@ -38,6 +38,9 @@
             this.btnGuardarMarca = new System.Windows.Forms.Button();
             this.btnCancelarMarca = new System.Windows.Forms.Button();
             this.pnlDatos = new System.Windows.Forms.Panel();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.lblid = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIdMarca)).BeginInit();
             this.pnlDatos.SuspendLayout();
@@ -56,7 +59,7 @@
             // 
             // btnAddMarca
             // 
-            this.btnAddMarca.Location = new System.Drawing.Point(26, 176);
+            this.btnAddMarca.Location = new System.Drawing.Point(23, 175);
             this.btnAddMarca.Name = "btnAddMarca";
             this.btnAddMarca.Size = new System.Drawing.Size(75, 23);
             this.btnAddMarca.TabIndex = 1;
@@ -66,7 +69,7 @@
             // 
             // btnModMarca
             // 
-            this.btnModMarca.Location = new System.Drawing.Point(108, 175);
+            this.btnModMarca.Location = new System.Drawing.Point(104, 175);
             this.btnModMarca.Name = "btnModMarca";
             this.btnModMarca.Size = new System.Drawing.Size(75, 23);
             this.btnModMarca.TabIndex = 2;
@@ -76,7 +79,7 @@
             // 
             // btnDelMarca
             // 
-            this.btnDelMarca.Location = new System.Drawing.Point(190, 174);
+            this.btnDelMarca.Location = new System.Drawing.Point(185, 175);
             this.btnDelMarca.Name = "btnDelMarca";
             this.btnDelMarca.Size = new System.Drawing.Size(75, 23);
             this.btnDelMarca.TabIndex = 3;
@@ -95,14 +98,14 @@
             // 
             // numIdMarca
             // 
-            this.numIdMarca.Location = new System.Drawing.Point(16, 37);
+            this.numIdMarca.Location = new System.Drawing.Point(56, 31);
             this.numIdMarca.Name = "numIdMarca";
             this.numIdMarca.Size = new System.Drawing.Size(57, 20);
             this.numIdMarca.TabIndex = 5;
             // 
             // txtNombreMarca
             // 
-            this.txtNombreMarca.Location = new System.Drawing.Point(16, 64);
+            this.txtNombreMarca.Location = new System.Drawing.Point(56, 62);
             this.txtNombreMarca.Name = "txtNombreMarca";
             this.txtNombreMarca.Size = new System.Drawing.Size(132, 20);
             this.txtNombreMarca.TabIndex = 6;
@@ -125,25 +128,59 @@
             this.btnCancelarMarca.TabIndex = 8;
             this.btnCancelarMarca.Text = "Cancelar";
             this.btnCancelarMarca.UseVisualStyleBackColor = true;
+            this.btnCancelarMarca.Click += new System.EventHandler(this.btnCancelarMarca_Click);
             // 
             // pnlDatos
             // 
+            this.pnlDatos.Controls.Add(this.lblNombre);
+            this.pnlDatos.Controls.Add(this.lblid);
             this.pnlDatos.Controls.Add(this.btnCancelarMarca);
             this.pnlDatos.Controls.Add(this.btnGuardarMarca);
             this.pnlDatos.Controls.Add(this.txtNombreMarca);
             this.pnlDatos.Controls.Add(this.numIdMarca);
             this.pnlDatos.Controls.Add(this.lblMarca);
             this.pnlDatos.Enabled = false;
-            this.pnlDatos.Location = new System.Drawing.Point(10, 221);
+            this.pnlDatos.Location = new System.Drawing.Point(12, 204);
             this.pnlDatos.Name = "pnlDatos";
             this.pnlDatos.Size = new System.Drawing.Size(317, 105);
             this.pnlDatos.TabIndex = 9;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(266, 175);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 11;
+            this.btnBuscar.Text = "Actualizar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // lblid
+            // 
+            this.lblid.AutoSize = true;
+            this.lblid.Location = new System.Drawing.Point(3, 33);
+            this.lblid.Name = "lblid";
+            this.lblid.Size = new System.Drawing.Size(21, 13);
+            this.lblid.TabIndex = 9;
+            this.lblid.Text = "ID:";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(3, 65);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblNombre.Size = new System.Drawing.Size(47, 13);
+            this.lblNombre.TabIndex = 10;
+            this.lblNombre.Text = "Nombre:";
+            this.lblNombre.Click += new System.EventHandler(this.label1_Click);
             // 
             // FormMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 343);
+            this.ClientSize = new System.Drawing.Size(636, 325);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.pnlDatos);
             this.Controls.Add(this.btnDelMarca);
             this.Controls.Add(this.btnModMarca);
@@ -172,6 +209,9 @@
         private System.Windows.Forms.Button btnGuardarMarca;
         private System.Windows.Forms.Button btnCancelarMarca;
         private System.Windows.Forms.Panel pnlDatos;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblid;
     }
 }
 

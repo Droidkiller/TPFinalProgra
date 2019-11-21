@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    class Conexion
+    public class Conexion
     {
         public static string DarStrConexion()
         {

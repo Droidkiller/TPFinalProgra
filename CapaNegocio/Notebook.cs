@@ -9,6 +9,8 @@ namespace CapaNegocio
 {
     public class Notebook
     {
-
+        private int id;
+        private string modelo;
+        private double tamañoPantalla;
     }
 }
