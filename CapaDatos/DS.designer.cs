@@ -39,12 +39,12 @@ namespace CapaDatos
     partial void InserteMarca(eMarca instance);
     partial void UpdateeMarca(eMarca instance);
     partial void DeleteeMarca(eMarca instance);
-    partial void InserteNotebook(eNotebook instance);
-    partial void UpdateeNotebook(eNotebook instance);
-    partial void DeleteeNotebook(eNotebook instance);
     partial void InserteProcesador(eProcesador instance);
     partial void UpdateeProcesador(eProcesador instance);
     partial void DeleteeProcesador(eProcesador instance);
+    partial void InserteNotebook(eNotebook instance);
+    partial void UpdateeNotebook(eNotebook instance);
+    partial void DeleteeNotebook(eNotebook instance);
     #endregion
 		
 		public DSDataContext() : 
@@ -101,19 +101,19 @@ namespace CapaDatos
 			}
 		}
 		
-		public System.Data.Linq.Table<eNotebook> eNotebooks
-		{
-			get
-			{
-				return this.GetTable<eNotebook>();
-			}
-		}
-		
 		public System.Data.Linq.Table<eProcesador> eProcesadors
 		{
 			get
 			{
 				return this.GetTable<eProcesador>();
+			}
+		}
+		
+		public System.Data.Linq.Table<eNotebook> eNotebooks
+		{
+			get
+			{
+				return this.GetTable<eNotebook>();
 			}
 		}
 	}
@@ -289,7 +289,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eAlmacenamiento_eNotebook", Storage="_eNotebooks", ThisKey="id", OtherKey="idAlmacenamiento")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eAlmacenamiento_Notebook", Storage="_eNotebooks", ThisKey="id", OtherKey="idAlmacenamiento")]
 		public EntitySet<eNotebook> eNotebooks
 		{
 			get
@@ -495,9 +495,9 @@ namespace CapaDatos
 		
 		private EntitySet<eAlmacenamiento> _eAlmacenamientos;
 		
-		private EntitySet<eNotebook> _eNotebooks;
-		
 		private EntitySet<eProcesador> _eProcesadors;
+		
+		private EntitySet<eNotebook> _eNotebooks;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -512,8 +512,8 @@ namespace CapaDatos
 		public eMarca()
 		{
 			this._eAlmacenamientos = new EntitySet<eAlmacenamiento>(new Action<eAlmacenamiento>(this.attach_eAlmacenamientos), new Action<eAlmacenamiento>(this.detach_eAlmacenamientos));
-			this._eNotebooks = new EntitySet<eNotebook>(new Action<eNotebook>(this.attach_eNotebooks), new Action<eNotebook>(this.detach_eNotebooks));
 			this._eProcesadors = new EntitySet<eProcesador>(new Action<eProcesador>(this.attach_eProcesadors), new Action<eProcesador>(this.detach_eProcesadors));
+			this._eNotebooks = new EntitySet<eNotebook>(new Action<eNotebook>(this.attach_eNotebooks), new Action<eNotebook>(this.detach_eNotebooks));
 			OnCreated();
 		}
 		
@@ -570,19 +570,6 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eMarca_eNotebook", Storage="_eNotebooks", ThisKey="id", OtherKey="idMarca")]
-		public EntitySet<eNotebook> eNotebooks
-		{
-			get
-			{
-				return this._eNotebooks;
-			}
-			set
-			{
-				this._eNotebooks.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eMarca_eProcesador", Storage="_eProcesadors", ThisKey="id", OtherKey="idMarca")]
 		public EntitySet<eProcesador> eProcesadors
 		{
@@ -593,6 +580,19 @@ namespace CapaDatos
 			set
 			{
 				this._eProcesadors.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eMarca_Notebook", Storage="_eNotebooks", ThisKey="id", OtherKey="idMarca")]
+		public EntitySet<eNotebook> eNotebooks
+		{
+			get
+			{
+				return this._eNotebooks;
+			}
+			set
+			{
+				this._eNotebooks.Assign(value);
 			}
 		}
 		
@@ -628,18 +628,6 @@ namespace CapaDatos
 			entity.eMarca = null;
 		}
 		
-		private void attach_eNotebooks(eNotebook entity)
-		{
-			this.SendPropertyChanging();
-			entity.eMarca = this;
-		}
-		
-		private void detach_eNotebooks(eNotebook entity)
-		{
-			this.SendPropertyChanging();
-			entity.eMarca = null;
-		}
-		
 		private void attach_eProcesadors(eProcesador entity)
 		{
 			this.SendPropertyChanging();
@@ -651,358 +639,17 @@ namespace CapaDatos
 			this.SendPropertyChanging();
 			entity.eMarca = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Notebook")]
-	public partial class eNotebook : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _modelo;
-		
-		private System.Nullable<double> _tamañoPantalla;
-		
-		private string _memoria;
-		
-		private System.Nullable<double> _peso;
-		
-		private System.Nullable<int> _idProcesador;
-		
-		private System.Nullable<int> _idAlmacenamiento;
-		
-		private System.Nullable<int> _idMarca;
-		
-		private EntityRef<eAlmacenamiento> _eAlmacenamiento;
-		
-		private EntityRef<eMarca> _eMarca;
-		
-		private EntityRef<eProcesador> _eProcesador;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnmodeloChanging(string value);
-    partial void OnmodeloChanged();
-    partial void OntamañoPantallaChanging(System.Nullable<double> value);
-    partial void OntamañoPantallaChanged();
-    partial void OnmemoriaChanging(string value);
-    partial void OnmemoriaChanged();
-    partial void OnpesoChanging(System.Nullable<double> value);
-    partial void OnpesoChanged();
-    partial void OnidProcesadorChanging(System.Nullable<int> value);
-    partial void OnidProcesadorChanged();
-    partial void OnidAlmacenamientoChanging(System.Nullable<int> value);
-    partial void OnidAlmacenamientoChanged();
-    partial void OnidMarcaChanging(System.Nullable<int> value);
-    partial void OnidMarcaChanged();
-    #endregion
-		
-		public eNotebook()
+		private void attach_eNotebooks(eNotebook entity)
 		{
-			this._eAlmacenamiento = default(EntityRef<eAlmacenamiento>);
-			this._eMarca = default(EntityRef<eMarca>);
-			this._eProcesador = default(EntityRef<eProcesador>);
-			OnCreated();
+			this.SendPropertyChanging();
+			entity.eMarca = this;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
+		private void detach_eNotebooks(eNotebook entity)
 		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modelo", DbType="VarChar(20)")]
-		public string modelo
-		{
-			get
-			{
-				return this._modelo;
-			}
-			set
-			{
-				if ((this._modelo != value))
-				{
-					this.OnmodeloChanging(value);
-					this.SendPropertyChanging();
-					this._modelo = value;
-					this.SendPropertyChanged("modelo");
-					this.OnmodeloChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tamañoPantalla", DbType="Float")]
-		public System.Nullable<double> tamañoPantalla
-		{
-			get
-			{
-				return this._tamañoPantalla;
-			}
-			set
-			{
-				if ((this._tamañoPantalla != value))
-				{
-					this.OntamañoPantallaChanging(value);
-					this.SendPropertyChanging();
-					this._tamañoPantalla = value;
-					this.SendPropertyChanged("tamañoPantalla");
-					this.OntamañoPantallaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_memoria", DbType="VarChar(15)")]
-		public string memoria
-		{
-			get
-			{
-				return this._memoria;
-			}
-			set
-			{
-				if ((this._memoria != value))
-				{
-					this.OnmemoriaChanging(value);
-					this.SendPropertyChanging();
-					this._memoria = value;
-					this.SendPropertyChanged("memoria");
-					this.OnmemoriaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_peso", DbType="Float")]
-		public System.Nullable<double> peso
-		{
-			get
-			{
-				return this._peso;
-			}
-			set
-			{
-				if ((this._peso != value))
-				{
-					this.OnpesoChanging(value);
-					this.SendPropertyChanging();
-					this._peso = value;
-					this.SendPropertyChanged("peso");
-					this.OnpesoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProcesador", DbType="Int")]
-		public System.Nullable<int> idProcesador
-		{
-			get
-			{
-				return this._idProcesador;
-			}
-			set
-			{
-				if ((this._idProcesador != value))
-				{
-					if (this._eProcesador.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidProcesadorChanging(value);
-					this.SendPropertyChanging();
-					this._idProcesador = value;
-					this.SendPropertyChanged("idProcesador");
-					this.OnidProcesadorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idAlmacenamiento", DbType="Int")]
-		public System.Nullable<int> idAlmacenamiento
-		{
-			get
-			{
-				return this._idAlmacenamiento;
-			}
-			set
-			{
-				if ((this._idAlmacenamiento != value))
-				{
-					if (this._eAlmacenamiento.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidAlmacenamientoChanging(value);
-					this.SendPropertyChanging();
-					this._idAlmacenamiento = value;
-					this.SendPropertyChanged("idAlmacenamiento");
-					this.OnidAlmacenamientoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMarca", DbType="Int")]
-		public System.Nullable<int> idMarca
-		{
-			get
-			{
-				return this._idMarca;
-			}
-			set
-			{
-				if ((this._idMarca != value))
-				{
-					if (this._eMarca.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidMarcaChanging(value);
-					this.SendPropertyChanging();
-					this._idMarca = value;
-					this.SendPropertyChanged("idMarca");
-					this.OnidMarcaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eAlmacenamiento_eNotebook", Storage="_eAlmacenamiento", ThisKey="idAlmacenamiento", OtherKey="id", IsForeignKey=true)]
-		public eAlmacenamiento eAlmacenamiento
-		{
-			get
-			{
-				return this._eAlmacenamiento.Entity;
-			}
-			set
-			{
-				eAlmacenamiento previousValue = this._eAlmacenamiento.Entity;
-				if (((previousValue != value) 
-							|| (this._eAlmacenamiento.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._eAlmacenamiento.Entity = null;
-						previousValue.eNotebooks.Remove(this);
-					}
-					this._eAlmacenamiento.Entity = value;
-					if ((value != null))
-					{
-						value.eNotebooks.Add(this);
-						this._idAlmacenamiento = value.id;
-					}
-					else
-					{
-						this._idAlmacenamiento = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("eAlmacenamiento");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eMarca_eNotebook", Storage="_eMarca", ThisKey="idMarca", OtherKey="id", IsForeignKey=true)]
-		public eMarca eMarca
-		{
-			get
-			{
-				return this._eMarca.Entity;
-			}
-			set
-			{
-				eMarca previousValue = this._eMarca.Entity;
-				if (((previousValue != value) 
-							|| (this._eMarca.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._eMarca.Entity = null;
-						previousValue.eNotebooks.Remove(this);
-					}
-					this._eMarca.Entity = value;
-					if ((value != null))
-					{
-						value.eNotebooks.Add(this);
-						this._idMarca = value.id;
-					}
-					else
-					{
-						this._idMarca = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("eMarca");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eProcesador_eNotebook", Storage="_eProcesador", ThisKey="idProcesador", OtherKey="id", IsForeignKey=true)]
-		public eProcesador eProcesador
-		{
-			get
-			{
-				return this._eProcesador.Entity;
-			}
-			set
-			{
-				eProcesador previousValue = this._eProcesador.Entity;
-				if (((previousValue != value) 
-							|| (this._eProcesador.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._eProcesador.Entity = null;
-						previousValue.eNotebooks.Remove(this);
-					}
-					this._eProcesador.Entity = value;
-					if ((value != null))
-					{
-						value.eNotebooks.Add(this);
-						this._idProcesador = value.id;
-					}
-					else
-					{
-						this._idProcesador = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("eProcesador");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
+			this.SendPropertyChanging();
+			entity.eMarca = null;
 		}
 	}
 	
@@ -1184,7 +831,7 @@ namespace CapaDatos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eProcesador_eNotebook", Storage="_eNotebooks", ThisKey="id", OtherKey="idProcesador")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eProcesador_Notebook", Storage="_eNotebooks", ThisKey="id", OtherKey="idProcesador")]
 		public EntitySet<eNotebook> eNotebooks
 		{
 			get
@@ -1295,6 +942,359 @@ namespace CapaDatos
 		{
 			this.SendPropertyChanging();
 			entity.eProcesador = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Notebook")]
+	public partial class eNotebook : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _modelo;
+		
+		private System.Nullable<double> _tamañoPantalla;
+		
+		private System.Nullable<int> _memoria;
+		
+		private System.Nullable<double> _peso;
+		
+		private System.Nullable<int> _idProcesador;
+		
+		private System.Nullable<int> _idAlmacenamiento;
+		
+		private System.Nullable<int> _idMarca;
+		
+		private EntityRef<eAlmacenamiento> _eAlmacenamiento;
+		
+		private EntityRef<eMarca> _eMarca;
+		
+		private EntityRef<eProcesador> _eProcesador;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnmodeloChanging(string value);
+    partial void OnmodeloChanged();
+    partial void OntamañoPantallaChanging(System.Nullable<double> value);
+    partial void OntamañoPantallaChanged();
+    partial void OnmemoriaChanging(System.Nullable<int> value);
+    partial void OnmemoriaChanged();
+    partial void OnpesoChanging(System.Nullable<double> value);
+    partial void OnpesoChanged();
+    partial void OnidProcesadorChanging(System.Nullable<int> value);
+    partial void OnidProcesadorChanged();
+    partial void OnidAlmacenamientoChanging(System.Nullable<int> value);
+    partial void OnidAlmacenamientoChanged();
+    partial void OnidMarcaChanging(System.Nullable<int> value);
+    partial void OnidMarcaChanged();
+    #endregion
+		
+		public eNotebook()
+		{
+			this._eAlmacenamiento = default(EntityRef<eAlmacenamiento>);
+			this._eMarca = default(EntityRef<eMarca>);
+			this._eProcesador = default(EntityRef<eProcesador>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_modelo", DbType="VarChar(20)")]
+		public string modelo
+		{
+			get
+			{
+				return this._modelo;
+			}
+			set
+			{
+				if ((this._modelo != value))
+				{
+					this.OnmodeloChanging(value);
+					this.SendPropertyChanging();
+					this._modelo = value;
+					this.SendPropertyChanged("modelo");
+					this.OnmodeloChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tamañoPantalla", DbType="Float")]
+		public System.Nullable<double> tamañoPantalla
+		{
+			get
+			{
+				return this._tamañoPantalla;
+			}
+			set
+			{
+				if ((this._tamañoPantalla != value))
+				{
+					this.OntamañoPantallaChanging(value);
+					this.SendPropertyChanging();
+					this._tamañoPantalla = value;
+					this.SendPropertyChanged("tamañoPantalla");
+					this.OntamañoPantallaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_memoria", DbType="Int")]
+		public System.Nullable<int> memoria
+		{
+			get
+			{
+				return this._memoria;
+			}
+			set
+			{
+				if ((this._memoria != value))
+				{
+					this.OnmemoriaChanging(value);
+					this.SendPropertyChanging();
+					this._memoria = value;
+					this.SendPropertyChanged("memoria");
+					this.OnmemoriaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_peso", DbType="Float")]
+		public System.Nullable<double> peso
+		{
+			get
+			{
+				return this._peso;
+			}
+			set
+			{
+				if ((this._peso != value))
+				{
+					this.OnpesoChanging(value);
+					this.SendPropertyChanging();
+					this._peso = value;
+					this.SendPropertyChanged("peso");
+					this.OnpesoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProcesador", DbType="Int")]
+		public System.Nullable<int> idProcesador
+		{
+			get
+			{
+				return this._idProcesador;
+			}
+			set
+			{
+				if ((this._idProcesador != value))
+				{
+					if (this._eProcesador.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidProcesadorChanging(value);
+					this.SendPropertyChanging();
+					this._idProcesador = value;
+					this.SendPropertyChanged("idProcesador");
+					this.OnidProcesadorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idAlmacenamiento", DbType="Int")]
+		public System.Nullable<int> idAlmacenamiento
+		{
+			get
+			{
+				return this._idAlmacenamiento;
+			}
+			set
+			{
+				if ((this._idAlmacenamiento != value))
+				{
+					if (this._eAlmacenamiento.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidAlmacenamientoChanging(value);
+					this.SendPropertyChanging();
+					this._idAlmacenamiento = value;
+					this.SendPropertyChanged("idAlmacenamiento");
+					this.OnidAlmacenamientoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMarca", DbType="Int")]
+		public System.Nullable<int> idMarca
+		{
+			get
+			{
+				return this._idMarca;
+			}
+			set
+			{
+				if ((this._idMarca != value))
+				{
+					if (this._eMarca.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidMarcaChanging(value);
+					this.SendPropertyChanging();
+					this._idMarca = value;
+					this.SendPropertyChanged("idMarca");
+					this.OnidMarcaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eAlmacenamiento_Notebook", Storage="_eAlmacenamiento", ThisKey="idAlmacenamiento", OtherKey="id", IsForeignKey=true)]
+		public eAlmacenamiento eAlmacenamiento
+		{
+			get
+			{
+				return this._eAlmacenamiento.Entity;
+			}
+			set
+			{
+				eAlmacenamiento previousValue = this._eAlmacenamiento.Entity;
+				if (((previousValue != value) 
+							|| (this._eAlmacenamiento.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eAlmacenamiento.Entity = null;
+						previousValue.eNotebooks.Remove(this);
+					}
+					this._eAlmacenamiento.Entity = value;
+					if ((value != null))
+					{
+						value.eNotebooks.Add(this);
+						this._idAlmacenamiento = value.id;
+					}
+					else
+					{
+						this._idAlmacenamiento = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("eAlmacenamiento");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eMarca_Notebook", Storage="_eMarca", ThisKey="idMarca", OtherKey="id", IsForeignKey=true)]
+		public eMarca eMarca
+		{
+			get
+			{
+				return this._eMarca.Entity;
+			}
+			set
+			{
+				eMarca previousValue = this._eMarca.Entity;
+				if (((previousValue != value) 
+							|| (this._eMarca.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eMarca.Entity = null;
+						previousValue.eNotebooks.Remove(this);
+					}
+					this._eMarca.Entity = value;
+					if ((value != null))
+					{
+						value.eNotebooks.Add(this);
+						this._idMarca = value.id;
+					}
+					else
+					{
+						this._idMarca = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("eMarca");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="eProcesador_Notebook", Storage="_eProcesador", ThisKey="idProcesador", OtherKey="id", IsForeignKey=true)]
+		public eProcesador eProcesador
+		{
+			get
+			{
+				return this._eProcesador.Entity;
+			}
+			set
+			{
+				eProcesador previousValue = this._eProcesador.Entity;
+				if (((previousValue != value) 
+							|| (this._eProcesador.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._eProcesador.Entity = null;
+						previousValue.eNotebooks.Remove(this);
+					}
+					this._eProcesador.Entity = value;
+					if ((value != null))
+					{
+						value.eNotebooks.Add(this);
+						this._idProcesador = value.id;
+					}
+					else
+					{
+						this._idProcesador = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("eProcesador");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

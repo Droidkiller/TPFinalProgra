@@ -16,7 +16,7 @@ namespace TPFinalProgra
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormProcesador());
+            Application.Run(new FormNotebook());
         }
     }
 }

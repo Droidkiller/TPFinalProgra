@@ -20,58 +20,58 @@
         <elementListCompartment Id="18a2428e-0bab-4834-8000-d517234aa58d" absoluteBounds="2.89, 1.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f47f783f-641f-4e70-bb22-dc3f51d27b75" absoluteBounds="0.5, 0.875, 2, 2.3478011067708335">
-      <DataClassMoniker Name="/DSDataContext/eNotebook" />
-      <nestedChildShapes>
-        <elementListCompartment Id="8ec39de0-4511-48bb-b5dd-9753bb4986d9" absoluteBounds="0.515, 1.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="37e8df6a-74a7-4336-9cee-ca97cd005f6c" absoluteBounds="2.875, 2.75, 2, 1.9631982421875">
       <DataClassMoniker Name="/DSDataContext/eProcesador" />
       <nestedChildShapes>
         <elementListCompartment Id="b7b4aa99-8c2a-46aa-95da-bd714fc9d359" absoluteBounds="2.89, 3.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.875 : 1.47199625651042); (5.25 : 1.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.875 : 1.47199625651042); (5.25 : 1.47199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DSDataContext/eMarca/eMarca_eAlmacenamiento" />
       <nodes>
         <classShapeMoniker Id="b08444e5-dfa9-48f6-b4b0-525ed60013fc" />
         <classShapeMoniker Id="1b4e5bb7-1917-4dda-b53d-4eade9869ed3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.25 : 2.40949625651042); (3.95833333333333 : 2.40949625651042 : JumpStart); (3.79166666666667 : 2.40949625651042 : JumpEnd); (2.5 : 2.40949625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DSDataContext/eAlmacenamiento/eAlmacenamiento_eNotebook" />
-      <nodes>
-        <classShapeMoniker Id="1b4e5bb7-1917-4dda-b53d-4eade9869ed3" />
-        <classShapeMoniker Id="f47f783f-641f-4e70-bb22-dc3f51d27b75" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.875 : 1.47199625651042); (2.5 : 1.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DSDataContext/eMarca/eMarca_eNotebook" />
-      <nodes>
-        <classShapeMoniker Id="b08444e5-dfa9-48f6-b4b0-525ed60013fc" />
-        <classShapeMoniker Id="f47f783f-641f-4e70-bb22-dc3f51d27b75" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.875 : 2.98640055338542); (2.5 : 2.98640055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DSDataContext/eProcesador/eProcesador_eNotebook" />
-      <nodes>
-        <classShapeMoniker Id="37e8df6a-74a7-4336-9cee-ca97cd005f6c" />
-        <classShapeMoniker Id="f47f783f-641f-4e70-bb22-dc3f51d27b75" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(3.875 : 5); (3.875 : 4.7131982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(3.875 : 5); (3.875 : 4.7131982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DSDataContext/eGraficos/eGraficos_eProcesador" />
       <nodes>
         <classShapeMoniker Id="83391b59-97a1-4380-ab1e-769fb382a1c1" />
         <classShapeMoniker Id="37e8df6a-74a7-4336-9cee-ca97cd005f6c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.875 : 2.06899251302083); (3.875 : 2.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.09375 : 2.06899251302083); (4.09375 : 2.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DSDataContext/eMarca/eMarca_eProcesador" />
       <nodes>
         <classShapeMoniker Id="b08444e5-dfa9-48f6-b4b0-525ed60013fc" />
         <classShapeMoniker Id="37e8df6a-74a7-4336-9cee-ca97cd005f6c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8a7ecfdc-70b7-4d31-8440-d4a2cfe6d964" absoluteBounds="0.5, 1.25, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DSDataContext/eNotebook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="01dd26fe-7582-4628-b0da-f59230bcfc47" absoluteBounds="0.51500000000000012, 1.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.25 : 2.40949625651042); (4.17708333333333 : 2.40949625651042 : JumpStart); (4.01041666666667 : 2.40949625651042 : JumpEnd); (2.5 : 2.40949625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DSDataContext/eAlmacenamiento/eAlmacenamiento_Notebook" />
+      <nodes>
+        <classShapeMoniker Id="1b4e5bb7-1917-4dda-b53d-4eade9869ed3" />
+        <classShapeMoniker Id="8a7ecfdc-70b7-4d31-8440-d4a2cfe6d964" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 1.65949625651042); (2.5 : 1.65949625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DSDataContext/eMarca/eMarca_Notebook" />
+      <nodes>
+        <classShapeMoniker Id="b08444e5-dfa9-48f6-b4b0-525ed60013fc" />
+        <classShapeMoniker Id="8a7ecfdc-70b7-4d31-8440-d4a2cfe6d964" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 3.17390055338542); (2.5 : 3.17390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DSDataContext/eProcesador/eProcesador_Notebook" />
+      <nodes>
+        <classShapeMoniker Id="37e8df6a-74a7-4336-9cee-ca97cd005f6c" />
+        <classShapeMoniker Id="8a7ecfdc-70b7-4d31-8440-d4a2cfe6d964" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

@@ -33,7 +33,7 @@ namespace TPFinalProgra
             numVelocidad.Value = 0;
             txtTipo.Text = "";
             cmbMarca.Text = "";
-            pnlDatos.Enabled = true;
+            pnlDatos.Enabled = mostrar;
         }
 
         private void CargarSeleccionado()
@@ -84,6 +84,7 @@ namespace TPFinalProgra
                 if (MessageBox.Show("¿Desea eliminar la unidad de almacenamiento " + a.ToString() + "?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     a.Eliminar();
+                    Almacenamiento.Buscar();
                 }
             }
             else

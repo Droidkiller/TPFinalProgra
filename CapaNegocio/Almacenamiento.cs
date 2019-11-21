@@ -186,6 +186,37 @@ namespace CapaNegocio
             this.id = fila.id;
         }
 
+        public eAlmacenamiento Guardar(DSDataContext dcOri)
+        {
+            try
+            {
+                DSDataContext dc = dcOri;
+                eAlmacenamiento fila = new eAlmacenamiento();
+                fila.modelo = this.modelo;
+
+                if (this.id == 0)
+                {
+                    dc.eAlmacenamientos.InsertOnSubmit(fila);
+                }
+                else
+                {
+                    var res = from x in dc.eAlmacenamientos where x.id == this.id select x;
+                    if (res.Count() > 0)
+                    {
+                        fila = res.First();
+                        fila.modelo = this.modelo;
+                    }
+                    else
+                        throw new Exception("Id no encontrado en Almacenamiento");
+                }
+                return fila;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public void Eliminar()
         {
             DSDataContext dc = new DSDataContext(Conexion.DarStrConexion());

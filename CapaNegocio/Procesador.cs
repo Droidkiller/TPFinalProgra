@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+
 namespace CapaNegocio
 {
     public class Procesador
@@ -161,7 +162,7 @@ namespace CapaNegocio
         #region Metodos
         public override string ToString()
         {
-            return modelo;
+            return string.Concat(modelo, " ", frecuencia, "GHz");
         }
 
         public void Guardar()
@@ -212,6 +213,38 @@ namespace CapaNegocio
             dc.SubmitChanges();
             this.id = fila.id;
         }
+
+        public eProcesador Guardar(DSDataContext dcOri)
+        {
+            try
+            {
+                DSDataContext dc = dcOri;
+                eProcesador fila = new eProcesador();
+                fila.modelo = this.modelo;
+
+                if (this.id == 0)
+                {
+                    dc.eProcesadors.InsertOnSubmit(fila);
+                }
+                else
+                {
+                    var res = from x in dc.eProcesadors where x.id == this.id select x;
+                    if (res.Count() > 0)
+                    {
+                        fila = res.First();
+                        fila.modelo = this.modelo;
+                    }
+                    else
+                        throw new Exception("Id no encontrado en Procesadores");
+                }
+                return fila;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public void Eliminar()
         {
             DSDataContext dc = new DSDataContext(Conexion.DarStrConexion());

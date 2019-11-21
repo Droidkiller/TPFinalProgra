@@ -113,6 +113,9 @@
     <EmbeddedResource Include="FormMarca.resx">
       <DependentUpon>FormMarca.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNotebook.resx">
+      <DependentUpon>FormNotebook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormProcesador.resx">
       <DependentUpon>FormProcesador.cs</DependentUpon>
     </EmbeddedResource>
