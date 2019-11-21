@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using CapaNegocio;
 
 namespace TPFinalProgra
@@ -78,17 +79,28 @@ namespace TPFinalProgra
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgv.CurrentRow != null)
+            try
             {
-                a = dgv.CurrentRow.DataBoundItem as Almacenamiento;
-                if (MessageBox.Show("¿Desea eliminar la unidad de almacenamiento " + a.ToString() + "?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dgv.CurrentRow != null)
                 {
-                    a.Eliminar();
-                    Almacenamiento.Buscar();
+                    a = dgv.CurrentRow.DataBoundItem as Almacenamiento;
+                    if (MessageBox.Show("¿Desea eliminar la unidad de almacenamiento " + a.ToString() + "?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        a.Eliminar();
+                        Buscar(txtBuscar.Text);
+                    }
                 }
+                else
+                    MessageBox.Show("Seleccione una unidad de almacenamiento", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-                MessageBox.Show("Seleccione una unidad de almacenamiento", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (SqlException)
+            {
+                MessageBox.Show("No se pudo eliminar el almacenamiento debido a que está en uso por una de las notebooks existentes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -114,6 +126,11 @@ namespace TPFinalProgra
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

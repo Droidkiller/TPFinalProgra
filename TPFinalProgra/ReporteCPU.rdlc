@@ -376,12 +376,101 @@
     <Height>0.96875in</Height>
     <Style />
   </Body>
-  <Width>8.078in</Width>
+  <Width>8.108in</Width>
   <Page>
     <PageHeader>
-      <Height>2.01083cm</Height>
+      <Height>2.55516cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Image Name="Image2">
+          <Source>Embedded</Source>
+          <Value>ID48x48_laptop</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.63182cm</Top>
+          <Left>0.3937cm</Left>
+          <Height>1.5cm</Height>
+          <Width>1.5cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Listado de procesadores</Value>
+                  <Style>
+                    <FontSize>26pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value />
+                  <Style>
+                    <FontSize>26pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.63182cm</Top>
+          <Left>2.19287cm</Left>
+          <Height>1.1825cm</Height>
+          <Width>10.41104cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Now()</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>1.55787cm</Top>
+          <Left>15.9512cm</Left>
+          <Height>0.6cm</Height>
+          <Width>4.19333cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>
@@ -392,6 +481,69 @@
       <Height>1.5875cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox3">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Pág. " + Globals!PageNumber.ToString + " de " + Globals!TotalPages.ToString</Value>
+                  <Style>
+                    <FontSize>16pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox3</rd:DefaultName>
+          <Top>0.40499cm</Top>
+          <Left>0.79057cm</Left>
+          <Height>0.83812cm</Height>
+          <Width>5.47747cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Copyright © 2019, Francisco Bonanni</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>0.82833cm</Top>
+          <Left>11.45328cm</Left>
+          <Height>0.6cm</Height>
+          <Width>6.6275cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>
@@ -459,6 +611,13 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <EmbeddedImages>
+    <EmbeddedImage Name="ID48x48_laptop">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAABRVJREFUaIHVmk1sG0UYht9v7KQtTd0W8kcEad1KkYjdgCIUqfTABbUXKEVVCFJFLlXFAYkILkjcOPaEIlQJiYBEBVLpjyoagdqK3KCHIlGg61Sy2jgxISG2Gxr3x47XOy+H2Kntru11YsfJc5qdmZ15v92dn++bBTY4Us3GgsGYJ70F3Zrco0RaLeomAHCJeqDJiBKZcCcw3tXVHK9Wn6s2wAjP9oGuoyJyEKQfIu6SN5BpAgGlcEVTXfB3Nl9fTf8rMsAw2Mim6KAIhgD4RGRF7ZAkgAAFwxJvOe33S6rSNiruODAV6SdwUkS8ld5bCpIhAT727Wo9V8l9jg24PXu/NbmYGIHg9ZU+cSdQc1Rb+kTP3vY5J/UdCRmfvrtfa+u8QDpWJ88ZBGeo2b9vd9u1cnVVuQqBcPQILT22VuIBQCAdStTPf4X+fat83RIEwtEjIM9CpKF68iqANC2tB3q87ReLVSlqwPj03f209BgEW2qjziFEQlO/VuxzsjXg9uz91qSZuLGWn00pCM5oU/faDWzbMZBcTIysF/FAZkw0qC/tywrIzPPfF06VlmVh5MwoFuL3a6UTALDd04Tj7xyG2+XKyydJAQYK14m8Zd8w2EhET9rN848Si7gzNY2nNm/CDs/Wmoi/F3+I2H8LePQoCc+2/D5EREieNAz+kLti5xnApuigKrPCHujtxtC7b1ZVeJbPv72EK7/+XrRcRLziiQ4CGMnmqfwKGKqJsiqiKXkalw0wwrN9AHxrrqhCROA3wrG+7PXjN7C0Ja7ZHqeaKMHR5XQ2ISIH6yOncrTWh7JpBSx5UiD99ZNUGQL4gsGYB8gYkN6C7rKe1HpCxJ1sSPuAjAGa3FNfRZWjXC4vkDFAibTWV84KINuAjAHZ6MFGgoKt
+gAOHZr2jgKW4Tb2FVIoQD4HHgzhSXzkrQGQOyGzmlMjEUoimPDdu3cGnp76riabJf5w/R21ZISBjgDuBcXMT0yXXAgGUUphfeID5hdp9cUopB7ESpjeb7gCQMaCrqzluTEUCArxY7JbU4iJe7X2hekpLYKZSAEr4HEQgG19dfuJK4Qppb4BlWfj6mzOYCE1VWao9RuAWPvrgPbgKvLIsBK5m08vTqKa6wCID4afLY2smHgAmQmH8eHkMRcelqPPLydx8YypyU0TyNnXh6Vl8duoraK0dde59vgONjfZhpFTKROjvGUftKKXw4fvH0fncs3n5JAz/rpZ92et8l1IwLECe9x+Zv4eGbTscdQoAO9s70Pz0dtuy2PwCZuLJMi0QXqQQwiZE5u89YYASDude5xkg8ZbT3Bb9JDfy3PLMTsfiASAQnKiofiFuAIewgC/Q8kTfBEOMt5zOzbMNq0DkbG7eL7/9iet/jCOdTq9KnFPcbjf6XurGgZd7kOckkm8XhlVsZ1xjMnJJlLxRW5mVwlFfZ+vhwlzbzZy29AmCzkbbGkBwxjL1CbsyWwN69rbPUbMfRKK20hxAJKjZX+zAo+h2et/utmuWto6BNGunrgykaYl1rNRBR0l/oMfbftHSeqAub4JIWKIHejqLnw0ADo+Ybk7OvSJKzm3IIyZg6XPSpu4lOFpsu1E9OKpN3etEPLCejlnBkLCGx6y5GAYblSc6qClDIlhVQIyEoYTDeq0OugsxwrE+JTiqtT4kgK98gIxpEAECVyHqfF1+NShGMBjzJBvSPuVyeUG2ZUMfQjyEyJy2rNBm0x2o5s8eG57/AY7IGXaG7+IvAAAAAElFTkSuQmCC</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>bb2125a4-91d7-4484-886e-290d098c39e5</rd:ReportID>
 </Report>

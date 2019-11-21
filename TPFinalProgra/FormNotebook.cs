@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using CapaNegocio;
 
 namespace TPFinalProgra
@@ -84,17 +85,25 @@ namespace TPFinalProgra
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgv.CurrentRow != null)
+            try
             {
-                n = dgv.CurrentRow.DataBoundItem as Notebook;
-                if (MessageBox.Show("¿Desea eliminar la notebook " + n.ToString() + "?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dgv.CurrentRow != null)
                 {
-                    n.Eliminar();
-                    Buscar(txtBuscar.Text);
+                    n = dgv.CurrentRow.DataBoundItem as Notebook;
+                    if (MessageBox.Show("¿Desea eliminar la notebook " + n.ToString() + "?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        n.Eliminar();
+                        Buscar(txtBuscar.Text);
+                    }
                 }
+                else
+                    MessageBox.Show("Seleccione una unidad de almacenamiento", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-                MessageBox.Show("Seleccione una unidad de almacenamiento", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -122,6 +131,11 @@ namespace TPFinalProgra
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

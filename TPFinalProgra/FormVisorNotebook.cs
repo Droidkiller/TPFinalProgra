@@ -11,18 +11,18 @@ using CapaNegocio;
 
 namespace TPFinalProgra
 {
-    public partial class FormVisorCPU : Form
+    public partial class FormVisorNotebook : Form
     {
-        public FormVisorCPU()
+        public FormVisorNotebook()
         {
             InitializeComponent();
         }
 
-        private void FormVisorCPU_Load(object sender, EventArgs e)
+        private void FormVisorNotebook_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DS.Procesador' table. You can move, or remove it, as needed.
-            this.ProcesadorTableAdapter.Connection.ConnectionString = Conexion.DarStrConexion();
-            this.ProcesadorTableAdapter.Fill(this.DS.Procesador);
+            // TODO: This line of code loads data into the 'DS.Notebook' table. You can move, or remove it, as needed.
+            this.NotebookTableAdapter.Connection.ConnectionString = Conexion.DarStrConexion();
+            this.NotebookTableAdapter.Fill(this.DS.Notebook);
 
             this.reportViewer1.RefreshReport();
         }

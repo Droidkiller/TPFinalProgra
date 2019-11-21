@@ -1,12 +1,13 @@
 ﻿using CapaDatos;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
+
 
 namespace CapaNegocio
 {
@@ -246,7 +247,7 @@ namespace CapaNegocio
         }
 
         public void Eliminar()
-        {
+        {            
             DSDataContext dc = new DSDataContext(Conexion.DarStrConexion());
             var res = from x in dc.eProcesadors where x.id == this.id select x;
             if (res.Count() > 0)
@@ -304,7 +305,7 @@ namespace CapaNegocio
                 sqlConn.Open();
                 SqlDataAdapter adapter;
                 DataSet ds = new DataSet();
-                adapter = new SqlDataAdapter(string.Concat("select p.id, p.modelo 'Modelo', p.frecuencia 'Frecuencia', p.nroNucleos 'Numero de nucleos', m.nombre 'Marca' from procesador p inner join marca m on p.idMarca = m.id where p.modelo like '%", buscado, "%' or a.nombre like '%", buscado, "%' or a.descripcion like '%", buscado, "%' or a.precio like '%", buscado, "%' or m.nombre like '%", buscado, "%'"), sqlConn);
+                adapter = new SqlDataAdapter(string.Concat("select p.id, p.modelo 'Modelo', p.frecuencia 'Frecuencia', p.nroNucleos 'Numero de nucleos', m.nombre 'Marca' from procesador p inner join marca m on p.idMarca = m.id where p.modelo like '%", buscado, "%' or m.nombre like '%", buscado, "%'"), sqlConn);
                 adapter.Fill(ds);
                 return ds.Tables[0]; //esto es si solo tiene 1 tabla, si tiene mas de una uso DataSet como tipo de dato a retornar
             }

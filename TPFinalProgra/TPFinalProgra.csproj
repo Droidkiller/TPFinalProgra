@@ -99,6 +99,12 @@
     <Compile Include="FormVisorCPU.Designer.cs">
       <DependentUpon>FormVisorCPU.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVisorNotebook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVisorNotebook.Designer.cs">
+      <DependentUpon>FormVisorNotebook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAlmacenamiento.resx">
@@ -122,6 +128,9 @@
     <EmbeddedResource Include="FormVisorCPU.resx">
       <DependentUpon>FormVisorCPU.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormVisorNotebook.resx">
+      <DependentUpon>FormVisorNotebook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -130,6 +139,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ReportNotebooks.rdlc" />
     <EmbeddedResource Include="ReporteCPU.rdlc" />
@@ -162,6 +172,10 @@
       <Project>{e6232328-6ae3-455a-89c7-926589f9f2e1}</Project>
       <Name>CapaNegocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\48x48_laptop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

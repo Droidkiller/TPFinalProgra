@@ -659,11 +659,11 @@ namespace TPFinalProgra {
             
             private global::System.Data.DataColumn columnpeso;
             
-            private global::System.Data.DataColumn columnidProcesador;
+            private global::System.Data.DataColumn columnprocesador;
             
-            private global::System.Data.DataColumn columnidAlmacenamiento;
+            private global::System.Data.DataColumn columnalmacenamiento;
             
-            private global::System.Data.DataColumn columnidMarca;
+            private global::System.Data.DataColumn columnmarca;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -740,25 +740,25 @@ namespace TPFinalProgra {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn idProcesadorColumn {
+            public global::System.Data.DataColumn procesadorColumn {
                 get {
-                    return this.columnidProcesador;
+                    return this.columnprocesador;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn idAlmacenamientoColumn {
+            public global::System.Data.DataColumn almacenamientoColumn {
                 get {
-                    return this.columnidAlmacenamiento;
+                    return this.columnalmacenamiento;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn idMarcaColumn {
+            public global::System.Data.DataColumn marcaColumn {
                 get {
-                    return this.columnidMarca;
+                    return this.columnmarca;
                 }
             }
             
@@ -799,7 +799,7 @@ namespace TPFinalProgra {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public NotebookRow AddNotebookRow(string modelo, double tamañoPantalla, string memoria, double peso, int idProcesador, int idAlmacenamiento, int idMarca) {
+            public NotebookRow AddNotebookRow(string modelo, double tamañoPantalla, int memoria, double peso, string procesador, string almacenamiento, string marca) {
                 NotebookRow rowNotebookRow = ((NotebookRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -807,9 +807,9 @@ namespace TPFinalProgra {
                         tamañoPantalla,
                         memoria,
                         peso,
-                        idProcesador,
-                        idAlmacenamiento,
-                        idMarca};
+                        procesador,
+                        almacenamiento,
+                        marca};
                 rowNotebookRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNotebookRow);
                 return rowNotebookRow;
@@ -844,9 +844,9 @@ namespace TPFinalProgra {
                 this.columntamañoPantalla = base.Columns["tamañoPantalla"];
                 this.columnmemoria = base.Columns["memoria"];
                 this.columnpeso = base.Columns["peso"];
-                this.columnidProcesador = base.Columns["idProcesador"];
-                this.columnidAlmacenamiento = base.Columns["idAlmacenamiento"];
-                this.columnidMarca = base.Columns["idMarca"];
+                this.columnprocesador = base.Columns["procesador"];
+                this.columnalmacenamiento = base.Columns["almacenamiento"];
+                this.columnmarca = base.Columns["marca"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -858,16 +858,16 @@ namespace TPFinalProgra {
                 base.Columns.Add(this.columnmodelo);
                 this.columntamañoPantalla = new global::System.Data.DataColumn("tamañoPantalla", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntamañoPantalla);
-                this.columnmemoria = new global::System.Data.DataColumn("memoria", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnmemoria = new global::System.Data.DataColumn("memoria", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmemoria);
                 this.columnpeso = new global::System.Data.DataColumn("peso", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpeso);
-                this.columnidProcesador = new global::System.Data.DataColumn("idProcesador", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidProcesador);
-                this.columnidAlmacenamiento = new global::System.Data.DataColumn("idAlmacenamiento", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidAlmacenamiento);
-                this.columnidMarca = new global::System.Data.DataColumn("idMarca", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidMarca);
+                this.columnprocesador = new global::System.Data.DataColumn("procesador", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprocesador);
+                this.columnalmacenamiento = new global::System.Data.DataColumn("almacenamiento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnalmacenamiento);
+                this.columnmarca = new global::System.Data.DataColumn("marca", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmarca);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -877,7 +877,9 @@ namespace TPFinalProgra {
                 this.columnid.ReadOnly = true;
                 this.columnid.Unique = true;
                 this.columnmodelo.MaxLength = 20;
-                this.columnmemoria.MaxLength = 15;
+                this.columnprocesador.MaxLength = 25;
+                this.columnalmacenamiento.MaxLength = 20;
+                this.columnmarca.MaxLength = 15;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1229,10 +1231,10 @@ namespace TPFinalProgra {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string memoria {
+            public int memoria {
                 get {
                     try {
-                        return ((string)(this[this.tableNotebook.memoriaColumn]));
+                        return ((int)(this[this.tableNotebook.memoriaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'memoria\' in table \'Notebook\' is DBNull.", e);
@@ -1261,49 +1263,49 @@ namespace TPFinalProgra {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int idProcesador {
+            public string procesador {
                 get {
                     try {
-                        return ((int)(this[this.tableNotebook.idProcesadorColumn]));
+                        return ((string)(this[this.tableNotebook.procesadorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'idProcesador\' in table \'Notebook\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'procesador\' in table \'Notebook\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableNotebook.idProcesadorColumn] = value;
+                    this[this.tableNotebook.procesadorColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int idAlmacenamiento {
+            public string almacenamiento {
                 get {
                     try {
-                        return ((int)(this[this.tableNotebook.idAlmacenamientoColumn]));
+                        return ((string)(this[this.tableNotebook.almacenamientoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'idAlmacenamiento\' in table \'Notebook\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'almacenamiento\' in table \'Notebook\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableNotebook.idAlmacenamientoColumn] = value;
+                    this[this.tableNotebook.almacenamientoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int idMarca {
+            public string marca {
                 get {
                     try {
-                        return ((int)(this[this.tableNotebook.idMarcaColumn]));
+                        return ((string)(this[this.tableNotebook.marcaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'idMarca\' in table \'Notebook\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'marca\' in table \'Notebook\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableNotebook.idMarcaColumn] = value;
+                    this[this.tableNotebook.marcaColumn] = value;
                 }
             }
             
@@ -1357,38 +1359,38 @@ namespace TPFinalProgra {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsidProcesadorNull() {
-                return this.IsNull(this.tableNotebook.idProcesadorColumn);
+            public bool IsprocesadorNull() {
+                return this.IsNull(this.tableNotebook.procesadorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetidProcesadorNull() {
-                this[this.tableNotebook.idProcesadorColumn] = global::System.Convert.DBNull;
+            public void SetprocesadorNull() {
+                this[this.tableNotebook.procesadorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsidAlmacenamientoNull() {
-                return this.IsNull(this.tableNotebook.idAlmacenamientoColumn);
+            public bool IsalmacenamientoNull() {
+                return this.IsNull(this.tableNotebook.almacenamientoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetidAlmacenamientoNull() {
-                this[this.tableNotebook.idAlmacenamientoColumn] = global::System.Convert.DBNull;
+            public void SetalmacenamientoNull() {
+                this[this.tableNotebook.almacenamientoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsidMarcaNull() {
-                return this.IsNull(this.tableNotebook.idMarcaColumn);
+            public bool IsmarcaNull() {
+                return this.IsNull(this.tableNotebook.marcaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetidMarcaNull() {
-                this[this.tableNotebook.idMarcaColumn] = global::System.Convert.DBNull;
+            public void SetmarcaNull() {
+                this[this.tableNotebook.marcaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1831,9 +1833,9 @@ FROM            Procesador AS P INNER JOIN
             tableMapping.ColumnMappings.Add("tamañoPantalla", "tamañoPantalla");
             tableMapping.ColumnMappings.Add("memoria", "memoria");
             tableMapping.ColumnMappings.Add("peso", "peso");
-            tableMapping.ColumnMappings.Add("idProcesador", "idProcesador");
-            tableMapping.ColumnMappings.Add("idAlmacenamiento", "idAlmacenamiento");
-            tableMapping.ColumnMappings.Add("idMarca", "idMarca");
+            tableMapping.ColumnMappings.Add("procesador", "procesador");
+            tableMapping.ColumnMappings.Add("almacenamiento", "almacenamiento");
+            tableMapping.ColumnMappings.Add("marca", "marca");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -1845,7 +1847,7 @@ FROM            Procesador AS P INNER JOIN
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tamañoPantalla", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tamañoPantalla", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tamañoPantalla", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tamañoPantalla", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_memoria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "memoria", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_memoria", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "memoria", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_memoria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "memoria", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_peso", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "peso", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_peso", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "peso", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_idProcesador", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idProcesador", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1861,7 +1863,7 @@ SELECT id, modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamient
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modelo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "modelo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tamañoPantalla", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tamañoPantalla", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@memoria", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "memoria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@memoria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "memoria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@peso", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "peso", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idProcesador", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idProcesador", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idAlmacenamiento", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idAlmacenamiento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1873,7 +1875,7 @@ SELECT id, modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamient
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@modelo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "modelo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tamañoPantalla", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tamañoPantalla", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@memoria", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "memoria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@memoria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "memoria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@peso", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "peso", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idProcesador", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idProcesador", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idAlmacenamiento", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idAlmacenamiento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1884,7 +1886,7 @@ SELECT id, modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamient
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tamañoPantalla", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tamañoPantalla", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tamañoPantalla", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tamañoPantalla", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_memoria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "memoria", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_memoria", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "memoria", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_memoria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "memoria", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_peso", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "peso", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_peso", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "peso", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_idProcesador", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idProcesador", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1910,7 +1912,11 @@ SELECT id, modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamient
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT * FROM Notebook";
+            this._commandCollection[0].CommandText = @"SELECT        N.id, N.modelo, N.tamañoPantalla, N.memoria, N.peso, P.modelo AS procesador, A.modelo AS almacenamiento, M.nombre AS marca
+FROM            Notebook AS N INNER JOIN
+                         Procesador AS P ON N.idProcesador = P.id INNER JOIN
+                         Almacenamiento AS A ON N.idAlmacenamiento = A.id INNER JOIN
+                         Marca AS M ON N.idMarca = M.id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1971,7 +1977,7 @@ SELECT id, modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamient
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, string Original_modelo, global::System.Nullable<double> Original_tamañoPantalla, string Original_memoria, global::System.Nullable<double> Original_peso, global::System.Nullable<int> Original_idProcesador, global::System.Nullable<int> Original_idAlmacenamiento, global::System.Nullable<int> Original_idMarca) {
+        public virtual int Delete(int Original_id, string Original_modelo, global::System.Nullable<double> Original_tamañoPantalla, global::System.Nullable<int> Original_memoria, global::System.Nullable<double> Original_peso, global::System.Nullable<int> Original_idProcesador, global::System.Nullable<int> Original_idAlmacenamiento, global::System.Nullable<int> Original_idMarca) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_modelo == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -1989,13 +1995,13 @@ SELECT id, modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamient
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_memoria == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((Original_memoria.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_memoria.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_memoria));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((Original_peso.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
@@ -2049,7 +2055,7 @@ SELECT id, modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamient
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string modelo, global::System.Nullable<double> tamañoPantalla, string memoria, global::System.Nullable<double> peso, global::System.Nullable<int> idProcesador, global::System.Nullable<int> idAlmacenamiento, global::System.Nullable<int> idMarca) {
+        public virtual int Insert(string modelo, global::System.Nullable<double> tamañoPantalla, global::System.Nullable<int> memoria, global::System.Nullable<double> peso, global::System.Nullable<int> idProcesador, global::System.Nullable<int> idAlmacenamiento, global::System.Nullable<int> idMarca) {
             if ((modelo == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2062,11 +2068,11 @@ SELECT id, modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamient
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((memoria == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            if ((memoria.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(memoria.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(memoria));
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((peso.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((double)(peso.Value));
@@ -2115,7 +2121,7 @@ SELECT id, modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamient
         public virtual int Update(
                     string modelo, 
                     global::System.Nullable<double> tamañoPantalla, 
-                    string memoria, 
+                    global::System.Nullable<int> memoria, 
                     global::System.Nullable<double> peso, 
                     global::System.Nullable<int> idProcesador, 
                     global::System.Nullable<int> idAlmacenamiento, 
@@ -2123,7 +2129,7 @@ SELECT id, modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamient
                     int Original_id, 
                     string Original_modelo, 
                     global::System.Nullable<double> Original_tamañoPantalla, 
-                    string Original_memoria, 
+                    global::System.Nullable<int> Original_memoria, 
                     global::System.Nullable<double> Original_peso, 
                     global::System.Nullable<int> Original_idProcesador, 
                     global::System.Nullable<int> Original_idAlmacenamiento, 
@@ -2141,11 +2147,11 @@ SELECT id, modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamient
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((memoria == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            if ((memoria.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(memoria.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(memoria));
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((peso.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(peso.Value));
@@ -2188,13 +2194,13 @@ SELECT id, modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamient
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((Original_memoria == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            if ((Original_memoria.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_memoria.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_memoria));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             if ((Original_peso.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
@@ -2249,7 +2255,7 @@ SELECT id, modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamient
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string modelo, global::System.Nullable<double> tamañoPantalla, string memoria, global::System.Nullable<double> peso, global::System.Nullable<int> idProcesador, global::System.Nullable<int> idAlmacenamiento, global::System.Nullable<int> idMarca, int Original_id, string Original_modelo, global::System.Nullable<double> Original_tamañoPantalla, string Original_memoria, global::System.Nullable<double> Original_peso, global::System.Nullable<int> Original_idProcesador, global::System.Nullable<int> Original_idAlmacenamiento, global::System.Nullable<int> Original_idMarca) {
+        public virtual int Update(string modelo, global::System.Nullable<double> tamañoPantalla, global::System.Nullable<int> memoria, global::System.Nullable<double> peso, global::System.Nullable<int> idProcesador, global::System.Nullable<int> idAlmacenamiento, global::System.Nullable<int> idMarca, int Original_id, string Original_modelo, global::System.Nullable<double> Original_tamañoPantalla, global::System.Nullable<int> Original_memoria, global::System.Nullable<double> Original_peso, global::System.Nullable<int> Original_idProcesador, global::System.Nullable<int> Original_idAlmacenamiento, global::System.Nullable<int> Original_idMarca) {
             return this.Update(modelo, tamañoPantalla, memoria, peso, idProcesador, idAlmacenamiento, idMarca, Original_id, Original_modelo, Original_tamañoPantalla, Original_memoria, Original_peso, Original_idProcesador, Original_idAlmacenamiento, Original_idMarca, Original_id);
         }
     }

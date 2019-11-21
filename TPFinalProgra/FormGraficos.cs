@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using CapaNegocio;
 
 namespace TPFinalProgra
@@ -62,16 +63,27 @@ namespace TPFinalProgra
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea eliminar los gráficos?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                Graficos g= ObtenerSeleccionado();
-                if (g != null)
+                if (MessageBox.Show("¿Desea eliminar los gráficos?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    g.Eliminar();
-                    Buscar();
+                    Graficos g= ObtenerSeleccionado();
+                    if (g != null)
+                    {
+                        g.Eliminar();
+                        Buscar();
+                    }
+                    else
+                        MessageBox.Show("Seleccione los gráficos a eliminar", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
-                    MessageBox.Show("Seleccione los gráficos a eliminar", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Los gráficos seleccionados están en uso por un procesador en existencia", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

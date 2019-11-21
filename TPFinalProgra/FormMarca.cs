@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using CapaNegocio;
 
 namespace TPFinalProgra
@@ -21,8 +22,8 @@ namespace TPFinalProgra
         #region Metodos
         private void ZonaDatos(bool mostrar)
         {
-            numIdMarca.Value = 0;
             txtNombreMarca.Text = "";
+            numId.Value = 0;
             pnlDatos.Enabled = mostrar;
         }
 
@@ -51,7 +52,7 @@ namespace TPFinalProgra
             try
             {
                 Marca m = new Marca();
-                m.Id = (int)numIdMarca.Value;
+                m.Id = (int)numId.Value;
                 m.Nombre = txtNombreMarca.Text;
                 m.Guardar();
                 ZonaDatos(false);
@@ -70,7 +71,7 @@ namespace TPFinalProgra
             if (m != null)
             {
                 ZonaDatos(true);
-                numIdMarca.Value = m.Id;
+                numId.Value = m.Id;
                 txtNombreMarca.Text = m.Nombre;
             }
             else
@@ -89,16 +90,27 @@ namespace TPFinalProgra
 
         private void btnDelMarca_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea eliminar la marca?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                Marca m = ObtenerSeleccionado();
-                if (m != null)
+                if (MessageBox.Show("¿Desea eliminar la marca?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    m.Eliminar();
-                    Buscar();
+                    Marca m = ObtenerSeleccionado();
+                    if (m != null)
+                    {
+                        m.Eliminar();
+                        Buscar();
+                    }
+                    else
+                        MessageBox.Show("Seleccione una marca", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
-                    MessageBox.Show("Seleccione una marca", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("La marca no pudo ser eliminada debido a que es referenciada por uno o más productos en existencia", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

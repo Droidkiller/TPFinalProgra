@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGraficos));
             this.dgvGraficos = new System.Windows.Forms.DataGridView();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -49,6 +50,10 @@
             // dgvGraficos
             // 
             this.dgvGraficos.AllowUserToDeleteRows = false;
+            this.dgvGraficos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvGraficos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvGraficos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGraficos.Location = new System.Drawing.Point(12, 12);
             this.dgvGraficos.Name = "dgvGraficos";
@@ -58,7 +63,8 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(40, 202);
+            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNuevo.Location = new System.Drawing.Point(12, 201);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 1;
@@ -68,7 +74,8 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(121, 202);
+            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnModificar.Location = new System.Drawing.Point(93, 201);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 2;
@@ -78,7 +85,8 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(202, 202);
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEliminar.Location = new System.Drawing.Point(174, 201);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 3;
@@ -88,7 +96,8 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(283, 201);
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnActualizar.Location = new System.Drawing.Point(255, 201);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 4;
@@ -116,6 +125,7 @@
             // 
             // lblModelo
             // 
+            this.lblModelo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblModelo.AutoSize = true;
             this.lblModelo.Location = new System.Drawing.Point(17, 68);
             this.lblModelo.Name = "lblModelo";
@@ -127,18 +137,22 @@
             // 
             this.numID.Location = new System.Drawing.Point(79, 41);
             this.numID.Name = "numID";
+            this.numID.ReadOnly = true;
             this.numID.Size = new System.Drawing.Size(45, 20);
             this.numID.TabIndex = 8;
             // 
             // txtModelo
             // 
+            this.txtModelo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtModelo.Location = new System.Drawing.Point(79, 65);
             this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(132, 20);
+            this.txtModelo.Size = new System.Drawing.Size(419, 20);
             this.txtModelo.TabIndex = 9;
             // 
             // pnlDatos
             // 
+            this.pnlDatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlDatos.Controls.Add(this.btnCancelar);
             this.pnlDatos.Controls.Add(this.btnGuardar);
             this.pnlDatos.Controls.Add(this.txtModelo);
@@ -149,12 +163,13 @@
             this.pnlDatos.Enabled = false;
             this.pnlDatos.Location = new System.Drawing.Point(14, 253);
             this.pnlDatos.Name = "pnlDatos";
-            this.pnlDatos.Size = new System.Drawing.Size(343, 121);
+            this.pnlDatos.Size = new System.Drawing.Size(501, 121);
             this.pnlDatos.TabIndex = 10;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(26, 91);
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancelar.Location = new System.Drawing.Point(3, 95);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 11;
@@ -164,7 +179,8 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(249, 91);
+            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardar.Location = new System.Drawing.Point(423, 95);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 10;
@@ -183,8 +199,9 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dgvGraficos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormGraficos";
-            this.Text = "FormGraficos";
+            this.Text = "Gestor de gráficos integrados";
             this.Load += new System.EventHandler(this.FormGraficos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGraficos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numID)).EndInit();
