@@ -51,6 +51,9 @@ namespace TPFinalProgra
         {
             try
             {
+                if (txtNombreMarca.Text == "")
+                    throw new Exception("Complete el nombre");
+                
                 Marca m = new Marca();
                 m.Id = (int)numId.Value;
                 m.Nombre = txtNombreMarca.Text;

@@ -110,20 +110,22 @@
             // cmbCpu
             // 
             this.cmbCpu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbCpu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCpu.FormattingEnabled = true;
             this.cmbCpu.Location = new System.Drawing.Point(403, 179);
             this.cmbCpu.Name = "cmbCpu";
             this.cmbCpu.Size = new System.Drawing.Size(305, 21);
-            this.cmbCpu.TabIndex = 23;
+            this.cmbCpu.TabIndex = 13;
             // 
             // cmbAlm
             // 
             this.cmbAlm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbAlm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAlm.FormattingEnabled = true;
             this.cmbAlm.Location = new System.Drawing.Point(403, 152);
             this.cmbAlm.Name = "cmbAlm";
             this.cmbAlm.Size = new System.Drawing.Size(305, 21);
-            this.cmbAlm.TabIndex = 22;
+            this.cmbAlm.TabIndex = 12;
             // 
             // label2
             // 
@@ -151,7 +153,8 @@
             this.numPeso.Location = new System.Drawing.Point(403, 96);
             this.numPeso.Name = "numPeso";
             this.numPeso.Size = new System.Drawing.Size(305, 20);
-            this.numPeso.TabIndex = 19;
+            this.numPeso.TabIndex = 10;
+            this.numPeso.ValueChanged += new System.EventHandler(this.numPeso_ValueChanged);
             // 
             // lblGB
             // 
@@ -198,11 +201,12 @@
             // cmbMarca
             // 
             this.cmbMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(403, 122);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(305, 21);
-            this.cmbMarca.TabIndex = 13;
+            this.cmbMarca.TabIndex = 11;
             // 
             // lblMarca
             // 
@@ -230,7 +234,7 @@
             0});
             this.numMemoria.Name = "numMemoria";
             this.numMemoria.Size = new System.Drawing.Size(277, 20);
-            this.numMemoria.TabIndex = 11;
+            this.numMemoria.TabIndex = 9;
             this.numMemoria.Value = new decimal(new int[] {
             2,
             0,
@@ -259,7 +263,7 @@
             0});
             this.numPantalla.Name = "numPantalla";
             this.numPantalla.Size = new System.Drawing.Size(305, 20);
-            this.numPantalla.TabIndex = 9;
+            this.numPantalla.TabIndex = 8;
             // 
             // lblCapacidad
             // 

@@ -113,6 +113,14 @@ namespace TPFinalProgra
         {
             try
             {
+                if (txtModelo.Text == "")
+                    throw new Exception("Complete el modelo");
+                if (numVelocidad.Value == 0)
+                    throw new Exception("Complete la velocidad");
+                if (numCapacidad.Value == 0)
+                    throw new Exception("Complete la capacidad");
+                if (txtTipo.Text == "")
+                    throw new Exception("Complete el tipo");
                 a.Modelo = txtModelo.Text;
                 a.Velocidad = (double)numVelocidad.Value;
                 a.Capacidad = (int)numCapacidad.Value;

@@ -34,7 +34,7 @@ namespace TPFinalProgra
             numNucleos.Value = 0;
             cmbGraficos.Text = "";
             cmbMarca.Text = "";
-            pnlDatos.Enabled = true;
+            pnlDatos.Enabled = mostrar;
         }
 
         private void CargarSeleccionado()
@@ -114,6 +114,12 @@ namespace TPFinalProgra
         {
             try
             {
+                if (txtModelo.Text == "")
+                    throw new Exception("Complete el modelo");
+                if (numFrecuencia.Value == 0)
+                    throw new Exception("Complete la frecuencia");
+                if (numNucleos.Value == 0)
+                    throw new Exception("Complete la cantidad de núcleos");
                 p.Modelo = txtModelo.Text;
                 p.Frecuencia = (double)numFrecuencia.Value;
                 p.NroNucleos = (int)numNucleos.Value;

@@ -64,14 +64,14 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "TPFinalProgra.ReporteCPU.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(12, 12);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(462, 419);
+            this.reportViewer1.Size = new System.Drawing.Size(787, 602);
             this.reportViewer1.TabIndex = 0;
             // 
             // FormVisorCPU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 443);
+            this.ClientSize = new System.Drawing.Size(811, 626);
             this.Controls.Add(this.reportViewer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormVisorCPU";

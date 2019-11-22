@@ -76,7 +76,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(368, 299);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(219, 20);
-            this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TabIndex = 4;
             // 
             // button1
             // 
@@ -84,7 +84,7 @@
             this.button1.Location = new System.Drawing.Point(593, 294);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 25);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -95,7 +95,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(13, 296);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 3;
+            this.btnNuevo.TabIndex = 1;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -108,7 +108,7 @@
             this.btnModificar.Location = new System.Drawing.Point(94, 296);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(76, 23);
-            this.btnModificar.TabIndex = 4;
+            this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -119,7 +119,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(176, 296);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 5;
+            this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -165,7 +165,7 @@
             0});
             this.numFrecuencia.Name = "numFrecuencia";
             this.numFrecuencia.Size = new System.Drawing.Size(402, 20);
-            this.numFrecuencia.TabIndex = 9;
+            this.numFrecuencia.TabIndex = 8;
             // 
             // numNucleos
             // 
@@ -178,7 +178,7 @@
             0});
             this.numNucleos.Name = "numNucleos";
             this.numNucleos.Size = new System.Drawing.Size(436, 20);
-            this.numNucleos.TabIndex = 11;
+            this.numNucleos.TabIndex = 9;
             // 
             // lblNroNucleos
             // 
@@ -204,20 +204,22 @@
             // cmbMarca
             // 
             this.cmbMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(225, 95);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(436, 21);
-            this.cmbMarca.TabIndex = 13;
+            this.cmbMarca.TabIndex = 10;
             // 
             // cmbGraficos
             // 
             this.cmbGraficos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbGraficos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGraficos.FormattingEnabled = true;
             this.cmbGraficos.Location = new System.Drawing.Point(225, 122);
             this.cmbGraficos.Name = "cmbGraficos";
             this.cmbGraficos.Size = new System.Drawing.Size(436, 21);
-            this.cmbGraficos.TabIndex = 15;
+            this.cmbGraficos.TabIndex = 11;
             // 
             // lblGraficos
             // 
@@ -268,7 +270,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(586, 150);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 17;
+            this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);

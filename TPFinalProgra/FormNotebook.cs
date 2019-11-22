@@ -30,7 +30,7 @@ namespace TPFinalProgra
         private void ZonaDatos(bool mostrar)
         {
             txtModelo.Text = "";
-            numMemoria.Value = 0;
+            numMemoria.Value = 2;
             numPantalla.Value = 0;
             numPeso.Value = 0;
             cmbAlm.Text = "";
@@ -116,6 +116,12 @@ namespace TPFinalProgra
         {
             try
             {
+                if (txtModelo.Text == "")
+                    throw new Exception("Complete el modelo");
+                if (numPantalla.Value == 0)
+                    throw new Exception("Complete el tamaño de la pantalla");
+                if (numPeso.Value == 0)
+                    throw new Exception("Complete el peso de la notebook");
                 n.Modelo = txtModelo.Text;
                 n.TamañoPantalla = (double)numPantalla.Value;
                 n.Memoria = (int)numMemoria.Value;
@@ -136,6 +142,11 @@ namespace TPFinalProgra
         private void btnVolver_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void numPeso_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

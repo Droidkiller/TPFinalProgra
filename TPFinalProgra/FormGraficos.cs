@@ -96,6 +96,8 @@ namespace TPFinalProgra
         {
             try
             {
+                if (txtModelo.Text == "")
+                    throw new Exception("Complete el modelo");
                 Graficos g = new Graficos();
                 g.Id = (int)numID.Value;
                 g.Modelo = txtModelo.Text;

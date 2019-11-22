@@ -85,7 +85,7 @@
             this.txtTipo.Location = new System.Drawing.Point(297, 96);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(366, 20);
-            this.txtTipo.TabIndex = 19;
+            this.txtTipo.TabIndex = 10;
             // 
             // lblGB
             // 
@@ -103,7 +103,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(588, 160);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 17;
+            this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -114,7 +114,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(19, 160);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -132,11 +132,12 @@
             // cmbMarca
             // 
             this.cmbMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(297, 122);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(366, 21);
-            this.cmbMarca.TabIndex = 13;
+            this.cmbMarca.TabIndex = 11;
             // 
             // lblMarca
             // 
@@ -159,7 +160,7 @@
             0});
             this.numVelocidad.Name = "numVelocidad";
             this.numVelocidad.Size = new System.Drawing.Size(366, 20);
-            this.numVelocidad.TabIndex = 11;
+            this.numVelocidad.TabIndex = 9;
             // 
             // lblVelocidad
             // 
@@ -183,7 +184,7 @@
             0});
             this.numCapacidad.Name = "numCapacidad";
             this.numCapacidad.Size = new System.Drawing.Size(338, 20);
-            this.numCapacidad.TabIndex = 9;
+            this.numCapacidad.TabIndex = 8;
             // 
             // lblCapacidad
             // 
@@ -220,7 +221,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(175, 265);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 20;
+            this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -233,7 +234,7 @@
             this.btnModificar.Location = new System.Drawing.Point(93, 264);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(76, 23);
-            this.btnModificar.TabIndex = 19;
+            this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -244,7 +245,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(12, 264);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 18;
+            this.btnNuevo.TabIndex = 1;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -269,7 +270,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(451, 267);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(161, 20);
-            this.txtBuscar.TabIndex = 22;
+            this.txtBuscar.TabIndex = 4;
             // 
             // btnBuscar
             // 
@@ -277,7 +278,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(618, 267);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 23;
+            this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);

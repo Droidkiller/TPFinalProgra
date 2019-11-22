@@ -179,7 +179,7 @@ namespace CapaNegocio
                     fila = res.First();
                 }
                 else //no lo encontramos.. mostramos error
-                    throw new Exception("Id no encontrado en Articulo");
+                    throw new Exception("Id no encontrado en Procesadores");
             }
 
 
